@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-org/gitops-repo.git'
-    path: helm-charts/guestbook-ui
+    repoURL: 'https://github.com/udemykcloud/helm.git'
+    path: gitops-repo/helm-charts/guestbook-ui
     targetRevision: main
     helm:
       valueFiles:
