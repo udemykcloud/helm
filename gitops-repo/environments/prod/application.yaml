@@ -13,7 +13,7 @@ spec:
       valueFiles:
         - values-prod.yaml
   destination:
-    server: https://kubernetes.default.svc
+    server: https://59A7267E233CC42B85C27324FB9E3379.gr7.ap-south-1.eks.amazonaws.com
     namespace: prod
   syncPolicy:
     automated:
