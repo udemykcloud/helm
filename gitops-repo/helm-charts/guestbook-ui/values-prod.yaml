@@ -1,0 +1,11 @@
+replicaCount: 5
+
+image:
+  repository: udemykcloud534/guestbook
+  tag: prod
+  pullPolicy: Always
+
+ingress:
+  enabled: true
+  className: nginx
+  host: guestbook.company.com

@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ include "guestbook-ui.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: {{ .Values.rollout.revisionHistoryLimit }}
+  selector:
+    matchLabels:
+      app: {{ include "guestbook-ui.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "guestbook-ui.name" . }}
+    spec:
+      containers:
+        - name: {{ include "guestbook-ui.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.targetPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      imagePullSecrets:
+{{- range .Values.imagePullSecrets }}
+        - name: {{ .name }}
+{{- end }}
+  strategy:
+    blueGreen:
+      activeService: {{ .Values.rollout.strategy.blueGreen.activeService }}
+      previewService: {{ .Values.rollout.strategy.blueGreen.previewService }}
+      autoPromotionEnabled: {{ .Values.rollout.strategy.blueGreen.autoPromotionEnabled }}
+      scaleDownDelaySeconds: {{ .Values.rollout.strategy.blueGreen.scaleDownDelaySeconds }}

@@ -1,0 +1,11 @@
+replicaCount: 3
+
+image:
+  repository: udemykcloud534/guestbook
+  tag: staging
+  pullPolicy: Always
+
+ingress:
+  enabled: true
+  className: nginx
+  host: staging.guestbook.company.com
