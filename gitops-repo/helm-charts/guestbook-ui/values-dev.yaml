@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: udemykcloud534/guestbook
-  tag: yellow
+  tag: green
   pullPolicy: Always
 
 imagePullSecrets:
@@ -25,5 +25,5 @@ rollout:
     blueGreen:
       activeService: guestbook-ui
       previewService: guestbook-ui-canary
-      autoPromotionEnabled: true
+      autoPromotionEnabled: false
       scaleDownDelaySeconds: 300
