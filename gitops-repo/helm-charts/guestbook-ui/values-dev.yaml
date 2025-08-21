@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: udemykcloud534/guestbook
-  tag: blue
+  tag: green
   pullPolicy: Always
 
 imagePullSecrets:
