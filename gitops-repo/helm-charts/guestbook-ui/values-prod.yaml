@@ -2,14 +2,14 @@ replicaCount: 5
 
 image:
   repository: udemykcloud534/guestbook
-  tag: green
+  tag: prod
   pullPolicy: Always
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: guestbook-ui-prod
+fullnameOverride: guestbook-ui-prod
 
-# Rollout settings (avoid nil pointer in templates)
+# Rollout settings
 rollout:
   strategy:
     blueGreen:
@@ -30,5 +30,5 @@ ingress:
     - host: guestbook.systemsdesigns.xyz
       paths:
         - path: /
-          pathType: Prefix   # ✅ required by Kubernetes
+          pathType: Prefix
   tls: []
