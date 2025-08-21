@@ -14,7 +14,7 @@ spec:
             pathType: {{ .Values.ingress.pathType }}
             backend:
               service:
-                name: {{ .Values.rollout.strategy.blueGreen.activeService }}
+                name: {{ .Values.rollout.strategy.blueGreen.previewService }}
                 port:
                   number: {{ .Values.service.port }}
 {{- end }}
