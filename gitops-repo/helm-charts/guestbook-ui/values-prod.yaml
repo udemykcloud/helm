@@ -20,6 +20,8 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 8080
+  selector:
+    app: guestbook-ui-prod   # ✅ Ensure it matches pod labels
 
 ingress:
   enabled: true
