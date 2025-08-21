@@ -30,5 +30,5 @@ ingress:
     - host: guestbook.systemsdesigns.xyz
       paths:
         - path: /
-          pathType: Prefix
+          pathType: Prefix   # ✅ required by Kubernetes
   tls: []
