@@ -9,6 +9,14 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# Rollout settings (avoid nil pointer in templates)
+rollout:
+  strategy:
+    blueGreen:
+      activeService: guestbook-ui-prod
+      previewService: guestbook-ui-prod-preview
+      autoPromotionEnabled: true
+
 service:
   type: ClusterIP
   port: 80

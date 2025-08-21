@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/udemykcloud/helm.git'
-    path: helm-charts/guestbook-ui
+    path: gitops-repo/helm-charts/guestbook-ui
     targetRevision: main
     helm:
       valueFiles:
